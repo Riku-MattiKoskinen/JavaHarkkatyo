@@ -18,7 +18,7 @@ Toteutus ja ohjelman rakenne:
 Ohjelma toteutettiin yhdellä kahdella aktiviteetilla ja neljällä fragmentilla. MainActivity toimii ainoastaan pelin aloitussivuna, josta pelaaja siirtyy pelin käynnistämällä GameActivity-aktiviteetiin. GameActivity sisältää neljä fragmenttia FragmentHome, FragmentGym, FragmentList ja FragmentFight, joiden välillä käyttäjä voi liikkua välilehtien tavoin. Fragmentit sisältävät suurimman osan pelin toiminnallisuudesta. Työssä implementoidut ominaisuudet ovat siis perusominaisuuksien lisäksi RecyclerView, kuva lutemoneilla ja fragmentit, ja lutemonien treenaamisessa hyödynnetyn countdownin.
 
 
-Luokkakaavio:
+Luokkakaavio (kaaviosta jätetty pois aktiviteetit, adapterit ja fragmentit, sillä ymmärsin näin ohjeista):
 
 
 ![harkkatyo_luokkakaavio drawio(1)](https://user-images.githubusercontent.com/72088238/235747349-46216cb2-e09f-498a-a8b4-49ca9aa78760.png)
