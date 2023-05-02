@@ -21,7 +21,7 @@
         android:layout_height="48dp"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="180dp"
-        android:background="#ECEEE8"
+        android:background="#E8F4FB"
         android:hint="Enter name"
         android:padding="10dp" />
     

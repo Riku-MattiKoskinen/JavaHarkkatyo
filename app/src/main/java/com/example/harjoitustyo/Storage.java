@@ -2,6 +2,7 @@ package com.example.harjoitustyo;
 
 import android.content.Context;
 
+import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.ObjectInputStream;
@@ -33,6 +34,12 @@ public class Storage {
 
     public void loadLutemons(Context context) {
         try {
+            File file = new File(context.getFilesDir(), "lutemons.data");
+            if (!file.exists()) {
+                System.out.println("lutemons.data file doesn't exist. Skipping the reading process.");
+                return;
+            }
+
             ObjectInputStream lutemonReader = new ObjectInputStream(context.openFileInput("lutemons.data"));
             lutemons = (ArrayList<Lutemon>) lutemonReader.readObject();
             lutemonReader.close();
@@ -47,6 +54,7 @@ public class Storage {
             e.printStackTrace();
         }
     }
+
     public void printLutemonList() {
         List<Lutemon> lutemons = getLutemons();
         System.out.println("Current Lutemon list:");

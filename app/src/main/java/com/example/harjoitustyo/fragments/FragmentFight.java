@@ -2,12 +2,14 @@ package com.example.harjoitustyo.fragments;
 
 import android.os.Bundle;
 import android.os.Handler;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.LinearLayout;
+import android.widget.ScrollView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -23,6 +25,7 @@ import java.util.List;
 public class FragmentFight extends Fragment {
 
     private TextView resultsTextView;
+    private ScrollView resultsScrollView;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -34,6 +37,8 @@ public class FragmentFight extends Fragment {
         // Find the BATTLE button and the results TextView
         Button battleButton = view.findViewById(R.id.battleButton);
         resultsTextView = view.findViewById(R.id.resultsTextView);
+        resultsScrollView = view.findViewById(R.id.resultsScrollView);
+
 
         // Set the OnClickListener for the BATTLE button
         battleButton.setOnClickListener(new View.OnClickListener() {
@@ -76,6 +81,7 @@ public class FragmentFight extends Fragment {
     }
 
     private void performBattle(Lutemon lutemon1, Lutemon lutemon2) {
+        Log.d("FragmentFight", "performBattle() called");
         StringBuilder battleLog = new StringBuilder();
         int originalHealthLutemon1 = lutemon1.getHealth();
         int originalHealthLutemon2 = lutemon2.getHealth();
@@ -88,6 +94,7 @@ public class FragmentFight extends Fragment {
         final Runnable battleRound = new Runnable() {
             @Override
             public void run() {
+                Log.d("FragmentFight", "battleRound.run() called");
                 battleLog.append("(" + lutemon1.getType() + ") ").append(lutemon1.getName())
                         .append(" (HP: ").append(lutemon1.getHealth()).append(")\n");
                 battleLog.append("(" + lutemon2.getType() + ") ").append(lutemon2.getName())
@@ -104,6 +111,7 @@ public class FragmentFight extends Fragment {
                 battleLog.append(lutemon2.getName()).append(" attacks ").append(lutemon1.getName())
                         .append(" for ").append(damageToLutemon1).append(" damage.\n");
                 resultsTextView.setText(battleLog.toString());
+                resultsScrollView.fullScroll(View.FOCUS_DOWN);
 
                 // If neither Lutemon has been defeated, schedule the next round
                 if (lutemon1.getHealth() > 0 && lutemon2.getHealth() > 0) {
@@ -118,6 +126,7 @@ public class FragmentFight extends Fragment {
                                 resultsTextView.append("It's a tie!");
                                 lutemon1.setHealth(originalHealthLutemon1);
                                 lutemon2.setHealth(originalHealthLutemon2);
+                                resultsScrollView.fullScroll(View.FOCUS_DOWN);
                             }
                         }, 1000);
                     } else {
@@ -143,10 +152,12 @@ public class FragmentFight extends Fragment {
 
                         // Update the results TextView with the battle log and post-battle winner stats
                         resultsTextView.setText(battleLog.toString());
+                        resultsScrollView.fullScroll(View.FOCUS_DOWN);
                         handler.postDelayed(new Runnable() {
                             @Override
                             public void run() {
                                 resultsTextView.append(winner.getName() + " is winner!");
+                                resultsScrollView.fullScroll(View.FOCUS_DOWN);
                             }
                         }, 1000);
                     }
