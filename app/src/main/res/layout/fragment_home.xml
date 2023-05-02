@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="5dp">
+
+    <TextView
+        android:id="@+id/txtHeadline"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal|top"
+        android:layout_marginTop="30dp"
+        android:padding="10dp"
+        android:text="Create new Lutemons"
+        android:textSize="20sp" />
+
+    <EditText
+        android:id="@+id/textName"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="180dp"
+        android:background="#ECEEE8"
+        android:hint="Enter name"
+        android:padding="10dp" />
+    
+    <RadioGroup
+        android:id="@+id/rgLutemontype"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="15dp">
+
+        <RadioButton
+            android:id="@+id/rbEarth"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Earth"/>
+        <RadioButton
+            android:id="@+id/rbMoon"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Moon"/>
+        <RadioButton
+            android:id="@+id/rbMars"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Mars"/>
+        <RadioButton
+            android:id="@+id/rbSun"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Sun"/>
+        <RadioButton
+            android:id="@+id/rbMercury"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Mercury"/>
+    </RadioGroup>
+    
+
+    <Button
+        android:id="@+id/addButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal|bottom"
+        android:layout_marginBottom="50dp"
+        android:text="Create" />
+</FrameLayout>
