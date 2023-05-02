@@ -1,6 +1,8 @@
 # JavaHarkkatyo - Lutemon-peli
 Tekijä: Riku-Matti Koskinen 0560556
 
+Työn demovideon linkki: https://youtu.be/WnCkQSFhziA
+
 
 Työn kuvaus:
 
